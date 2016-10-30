@@ -32,6 +32,10 @@ static int cmd_c(char *args) {
 	return 0;
 }
 
+static int cmd_info(char *args) {
+	return -1;
+}
+
 static int cmd_q(char *args) {
 	return -1;
 }
@@ -52,6 +56,7 @@ static struct {
 	{ "c", "Continue the execution of the program", cmd_c },
 	{ "q", "Exit NEMU", cmd_q },
 	{ "si", "si [N] debug step by step or N steps", cmd_si},
+	{ "info", "info r  show the value of every register", cmd_info},
 	/* TODO: Add more commands */
 
 };
