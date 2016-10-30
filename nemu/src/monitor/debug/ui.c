@@ -33,7 +33,8 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_info(char *args) {
-	return -1;
+	printf("%x",cpu.eax);
+	return 0;
 }
 
 static int cmd_q(char *args) {
