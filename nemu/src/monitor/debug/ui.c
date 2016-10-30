@@ -33,7 +33,9 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_info(char *args) {
-	printf("%x",cpu.eax);
+	if (args[0] == 'r') {
+		printf("eax : %x ebx : %x\n",cpu.eax,cpu.ebx);		
+	}
 	return 0;
 }
 
