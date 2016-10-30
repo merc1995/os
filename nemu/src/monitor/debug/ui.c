@@ -36,6 +36,10 @@ static int cmd_q(char *args) {
 	return -1;
 }
 
+static int cmd_si(char *args) {
+	return -1;
+}
+
 static int cmd_help(char *args);
 
 static struct {
@@ -46,7 +50,7 @@ static struct {
 	{ "help", "Display informations about all supported commands", cmd_help },
 	{ "c", "Continue the execution of the program", cmd_c },
 	{ "q", "Exit NEMU", cmd_q },
-
+	{ "si", "debug step by step or N step", cmd_si},
 	/* TODO: Add more commands */
 
 };
@@ -100,6 +104,7 @@ void ui_mainloop() {
 
 		int i;
 		for(i = 0; i < NR_CMD; i ++) {
+			Log("%s\n",cmd);
 			if(strcmp(cmd, cmd_table[i].name) == 0) {
 				if(cmd_table[i].handler(args) < 0) { return; }
 				break;
