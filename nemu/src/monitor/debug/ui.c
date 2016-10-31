@@ -53,8 +53,8 @@ static int cmd_x(char *args) {
 		char *addr = args + strlen(N) + 1;
 		int n = atoi(N);
 		int add = strtol(addr, NULL, 16);
-		for (;n>0;n--) {
-			printf("%x : %x\n", add, swaddr_read(add, 1) );
+		for (;n>0;n-=4) {
+			printf("%x : %x\n", add, swaddr_read(add, n>0?4:n+4) );
 		}
 	}
 	return 0;
