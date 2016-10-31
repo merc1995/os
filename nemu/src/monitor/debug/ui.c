@@ -53,7 +53,7 @@ static int cmd_x(char *args) {
 		int n = atoi(N);
 		int add = strtol(addr, NULL, 16);
 		for (;n>0;n--) {
-			printf("%x : %02x\n", add, *(char *)add);
+			printf("%x : \n", add );
 		}
 	}
 	return 0;
