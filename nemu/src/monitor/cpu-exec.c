@@ -25,6 +25,7 @@ void print_bin_instr(swaddr_t eip, int len) {
 	for(i = 0; i < len; i ++) {
 		l += sprintf(asm_buf + l, "%02x ", instr_fetch(eip + i, 1));
 	}
+	// bu wei
 	sprintf(asm_buf + l, "%*.s", 50 - (12 + 3 * len), "");
 }
 

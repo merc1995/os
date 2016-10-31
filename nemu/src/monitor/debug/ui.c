@@ -1,6 +1,7 @@
 #include "monitor/monitor.h"
 #include "monitor/expr.h"
 #include "monitor/watchpoint.h"
+#include "memory/memory.h"
 #include "nemu.h"
 
 #include <stdlib.h>
@@ -53,7 +54,7 @@ static int cmd_x(char *args) {
 		int n = atoi(N);
 		int add = strtol(addr, NULL, 16);
 		for (;n>0;n--) {
-			printf("%x : %x\n", add, *(char *)add );
+			printf("%x : %x\n", add, swaddr_read(add, 1) );
 		}
 	}
 	return 0;
