@@ -34,7 +34,10 @@ static int cmd_c(char *args) {
 
 static int cmd_info(char *args) {
 	if (args[0] == 'r') {
-		printf("eax : %x ebx : %x\n",cpu.eax,cpu.ebx);		
+		printf("eax : %x ecx : %x\n",cpu.eax,cpu.ecx);		
+		printf("edx : %x ebx : %x\n",cpu.edx,cpu.ebx);		
+		printf("esp : %x ebp : %x\n",cpu.esp,cpu.ebp);		
+		printf("esi : %x edi : %x\n",cpu.esi,cpu.edi);		
 	}
 	return 0;
 }
