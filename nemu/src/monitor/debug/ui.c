@@ -53,9 +53,13 @@ static int cmd_x(char *args) {
 		char *addr = args + strlen(N) + 1;
 		int n = atoi(N);
 		int add = strtol(addr, NULL, 16);
+		int i;
 		for (;n>0;n-=4) {
-			printf("%x : %8x\n", add, swaddr_read(add, n>0?4:n+4) );
-			add += 4;
+			printf("%x : ", add);
+			for (i = 0; i < (n>0?4:n+4); i++) {
+				printf("%02x ",swaddr_read(add++, 1) );
+			}
+			printf("\n");
 		}
 	}
 	return 0;
