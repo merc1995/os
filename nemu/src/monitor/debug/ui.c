@@ -34,10 +34,10 @@ static int cmd_c(char *args) {
 
 static int cmd_info(char *args) {
 	if (args[0] == 'r') {
-		printf("eax : %8x ecx : %8x\n",cpu.eax,cpu.ecx);		
-		printf("edx : %8x ebx : %8x\n",cpu.edx,cpu.ebx);		
-		printf("esp : %8x ebp : %8x\n",cpu.esp,cpu.ebp);		
-		printf("esi : %8x edi : %8x\n",cpu.esi,cpu.edi);		
+		printf("eax : 0x%8x ecx : 0x%8x\n",cpu.eax,cpu.ecx);		
+		printf("edx : 0x%8x ebx : 0x%8x\n",cpu.edx,cpu.ebx);		
+		printf("esp : 0x%8x ebp : 0x%8x\n",cpu.esp,cpu.ebp);		
+		printf("esi : 0x%8x edi : 0x%8x\n",cpu.esi,cpu.edi);		
 	} else {
 		printf("use 'help' for help");
 	}
@@ -51,7 +51,7 @@ static int cmd_x(char *args) {
 	} else {
 		char *addr = args + strlen(N) + 1;
 		int add = strtol(addr, NULL, 16);
-		printf("%d  %x\n", atoi(N), add);
+		printf("%d  0x%x\n", atoi(N), add);
 	}
 	return 0;
 }
