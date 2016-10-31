@@ -56,7 +56,7 @@ static int cmd_x(char *args) {
 		int i;
 		for (;n>0;n-=4) {
 			printf("%x : ", add);
-			for (i = 0; i < (n>0?4:n+4); i++) {
+			for (i = 0; i < (n>0?4:n); i++) {
 				printf("%02x ",swaddr_read(add++, 1) );
 			}
 			printf("\n");
