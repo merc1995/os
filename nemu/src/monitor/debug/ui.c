@@ -50,8 +50,11 @@ static int cmd_x(char *args) {
 		printf("use 'help' for help");
 	} else {
 		char *addr = args + strlen(N) + 1;
+		int n = atoi(N);
 		int add = strtol(addr, NULL, 16);
-		printf("%d  0x%x\n", atoi(N), add);
+		for (;n>0;n--) {
+			printf("%x : %d\n", add, *(char *)add);
+		}
 	}
 	return 0;
 }
