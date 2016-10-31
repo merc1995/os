@@ -38,6 +38,19 @@ static int cmd_info(char *args) {
 		printf("edx : %8x ebx : %8x\n",cpu.edx,cpu.ebx);		
 		printf("esp : %8x ebp : %8x\n",cpu.esp,cpu.ebp);		
 		printf("esi : %8x edi : %8x\n",cpu.esi,cpu.edi);		
+	} else {
+		printf("use 'help' for help");
+	}
+	return 0;
+}
+
+static int cmd_x(char *args) {
+	char *N = strtok(args, " ");	
+	if (N == NULL) {
+		printf("use 'help' for help");
+	} else {
+		char *addr = args + strlen(N) + 1;
+		printf("%x",atoi(addr));
 	}
 	return 0;
 }
@@ -63,6 +76,7 @@ static struct {
 	{ "q", "Exit NEMU", cmd_q },
 	{ "si", "si [N] debug step by step or N steps", cmd_si},
 	{ "info", "info r  show the value of every register", cmd_info},
+	{ "x", "x N addr  show the data form the address addr for length N", cmd_x},
 	/* TODO: Add more commands */
 
 };
